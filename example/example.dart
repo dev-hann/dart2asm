@@ -1,9 +1,13 @@
-void main(dynamic args) {
+void main() {
   // final input = int.parse(stdin.readLineSync() ?? "0");
-  int c = add(1, 1000);
-  print("HEll$c");
+  // int c = add(1, 1000);
+  // print(DateTime.now());
+  int a = DateTime.now().second;
+  int b = 5;
+  int c = a + b + add();
+  print(c);
 }
 
-int add(int a, int b) {
-  return a + b;
+int add() {
+  return DateTime.now().minute;
 }

@@ -19,10 +19,7 @@ void main(List<String> arguments) async {
   if (!file.existsSync()) {
     file.createSync();
   }
-  parseAssemblyFromStderr(res.stderr);
-  // file.writeAsStringSync(parseAssemblyFromStderr(res.stderr));
-  file.writeAsStringSync(res.stderr);
-  // print(res.stdout);
+  file.writeAsStringSync(parseAssemblyFromStderr(res.stderr));
 }
 
 String parseAssemblyFromStderr(String inputText) {
@@ -73,6 +70,6 @@ String parseAssemblyFromStderr(String inputText) {
       }
     }
   }
-  return errorLines.join('\n') + assemblyLines.join('\n');
-  // return AssemblyParserResult(errorLines.join('\n'), assemblyLines.join('\n'));
+  return "${assemblyLines.join("\n")}\n\n${errorLines.join("\n")}";
+  // return errorLines.join('\n') + assemblyLines.join('\n');
 }
